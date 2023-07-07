@@ -1,0 +1,465 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #3D087B;
+}
+
+.MainContainerApp {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+
+}
+
+.LeftContainer {
+    width: 50%;
+    height: 100%;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto 80px auto;
+    justify-content: end;
+}
+
+.FirstComponent {
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+.SecondComponent {
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+
+.ThirdComponent {
+    grid-column: 1/3;
+    grid-row: 3/4;
+}
+
+.FourthComponent {
+    grid-column: 1/2;
+    grid-row: 4/5;
+}
+
+.FifthComponent {
+    grid-column: 2/3;
+    grid-row: 4/5;
+}
+
+/* 1th Component */
+.Clock_Logo {
+    width: 150px;
+
+}
+
+/* 2nd Component */
+.SetReminder_Container {
+    width: 100%;
+    width: 450px;
+    height: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #EDEDED;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.SetReminder_Rows {
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Line {
+    margin: 0px 17.5px;
+    border: 1px solid #C2C2C2;
+    height: 35px;
+}
+
+select {
+    width: 200px;
+    border: 1px solid #EDEDED;
+    padding: 15px;
+}
+
+select:focus {
+    outline: none;
+}
+
+.Reminder_Name {
+    color: #3D087B;
+    width: 40%;
+}
+
+.Reminder_Icon {
+    width: 34px;
+}
+
+/* 3rd Component */
+.Message_Container {
+    background-color: rgba(255, 255, 255, 0.234);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    border-radius: 10px;
+    font-size: 22px;
+
+}
+
+#DynamicMessage {
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-family: bauhaus-hv-bt;
+    font-weight: 900;
+
+}
+
+/* 4th Component */
+#SetAlarm_Btn {
+    border: none;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(113deg, #6E54EC 0%, #CB52F8 40%, #FC5EFF 81%, #F1A7C5 100%);
+    border-radius: 4px;
+    padding: 15px 20px;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+}
+
+/* 5th Component */
+.Timing_Box {
+    background-color: rgba(255, 255, 255, 0.244);
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    color: #F25CFE;
+    border-radius: 10px;
+    font-size: 15px;
+
+}
+
+.RightContainer {
+    /* border: 2px solid yellow; */
+    width: 50%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 150px 80px auto;
+    gap: 20px;
+    justify-content: start;
+
+
+}
+
+.SixComponent {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.SevenComponent {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.EightComponent {
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+/* 6rd Component */
+.MainClock_Container {
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 150px;
+    position: relative;
+}
+
+
+.MainClock_Container .BlurBg {
+    background-color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    opacity: 0.22;
+    width: 80%;
+    border-radius: 10px;
+    top: 65%;
+    left: 50%;
+    height: 80px;
+    z-index: 1;
+}
+
+.MainClock_Container .BlurBg_2 {
+    background-color: white;
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    opacity: 0.71;
+    z-index: 2;
+}
+
+.MainClock_Container .MainClock {
+    border-radius: 10px;
+    background-color: white;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.MainClock .Time_Box {
+    background-image: url(./Images/timeline.svg);
+    width: 70px;
+    height: 80px;
+    margin: 0px 15px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.MainClock .Time_text {
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #3D087B;
+    text-transform: uppercase;
+}
+
+.Time_Box span {
+    color: #5F0089;
+    font-size: 18px;
+}
+
+#Time_Hour,
+#Time_Minute,
+#Time_Second,
+#Meridiem {
+    font-size: 22px;
+    font-weight: bold;
+
+}
+
+.MainClock .Meridiem_Box {
+    background-image: url(./Images/AM_svg.svg);
+}
+
+#Meridiem {
+    color: white;
+    font-size: 20px;
+}
+
+
+/* 7th Component  */
+.Message_Container2 {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#DynamicMessage2 {
+    text-transform: uppercase;
+    color: #8E53F0;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+/* 8th Component*/
+#Reminder_Poster {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+@media screen and (max-width: 929px) {
+    .MainContainerApp {
+        flex-direction: column;
+        height: fit-content;
+        padding: 5px;
+
+    }
+
+    .LeftContainer {
+        width: 100%;
+        gap: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 70px 300px 80px 80px 150px;
+        justify-content: start;
+        align-content: stretch;
+
+    }
+
+    .FirstComponent {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .SecondComponent {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .ThirdComponent {
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+
+    .FourthComponent {
+        grid-column: 1/2;
+        grid-row: 4/5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .FifthComponent {
+        grid-column: 1/2;
+        grid-row: 5/6;
+    }
+
+    /* 1th Component */
+    .Clock_Logo {
+        width: 150px;
+
+    }
+
+    /* 2nd Component */
+    .SetReminder_Container {
+        width: 100%;
+        padding: 10px 5px;
+    }
+
+    .Reminder_Name {
+        font-size: 15px;
+    }
+
+    select {
+        width: 150px;
+        border: 1px solid #EDEDED;
+        padding: 15px;
+    }
+
+    /* 3rd Component */
+    .Message_Container {
+        font-size: 16px;
+        padding: 0px 5px;
+    }
+
+
+    /* 4th Component */
+    #SetAlarm_Btn {
+        width: 70%;
+    }
+
+    /* 5th Component */
+    .Timing_Box {
+        padding: 10px;
+    }
+
+    .RightContainer {
+        width: 100%;
+        gap: 10px;
+        justify-content: stretch;
+        align-content: stretch;
+
+    }
+
+    .MainClock .Time_Box {
+        width: 50px;
+        height: 60px;
+        margin: 0px 5px;
+    }
+
+    #Time_Hour,
+    #Time_Minute,
+    #Time_Second,
+    #Meridiem {
+        font-size: 15px;
+    }
+
+    /* 7th Component  */
+    .Message_Container2 {
+        padding: 0px 5px;
+    }
+
+    #DynamicMessage2 {
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (min-width: 501px) and (max-width: 929px) {
+
+    .LeftContainer {
+        gap: 20px;
+    }
+    .SetReminder_Container {
+        padding: 10px;
+    }
+
+    select {
+        width: 285px;
+        border: 1px solid #EDEDED;
+        padding: 15px;
+    }
+
+    .MainClock .Time_Box {
+        width: 70px;
+        height: 80px;
+        margin: 0px 10px;
+    }
+    #Time_Hour,
+    #Time_Minute,
+    #Time_Second,
+    #Meridiem {
+        font-size: 20px;
+    }
+    .Message_Container {
+        font-size: 20px;
+        padding: 0px 10px;
+    }
+
+    .Message_Container2 {
+        padding: 0px 10px;
+    }
+
+    #DynamicMessage2 {
+        font-size: 20px;
+    }
+}
