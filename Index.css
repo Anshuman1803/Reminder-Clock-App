@@ -141,8 +141,10 @@ select:focus {
     width: 100%;
     height: 50px;
     cursor: pointer;
-    transition: all 0.3s ease-out;
-
+    transition: all 0.5s ease-in-out;
+}
+#SetAlarm_Btn:hover{
+    background: linear-gradient(-113deg, #6E54EC 0%, #CB52F8 40%, #FC5EFF 81%, #F1A7C5 100%);;
 }
 
 /* 5th Component */
