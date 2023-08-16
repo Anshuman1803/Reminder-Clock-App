@@ -3,7 +3,6 @@ const Time_Minute = document.getElementById("Time_Minute");
 const Time_Second = document.getElementById("Time_Second");
 const Time_AMPM = document.getElementById("Time_AMPM");
 const DynamicMessage = document.getElementById("DynamicMessage");
-
 const Reminder_Poster = document.getElementById("Reminder_Poster");
 const DynamicMessage2 = document.getElementById("DynamicMessage2");
 const SetAlarm_Btn = document.getElementById("SetAlarm_Btn");
@@ -29,24 +28,24 @@ function setTime() {
         newHour -= 12;
         AMPM = "PM";
     }
-    if(newHour >=0 && newHour <=11 && AMPM ==='AM'){
+    if (newHour >= 0 && newHour <= 11 && AMPM === 'AM') {
         DynamicMessage.innerText = "GOOD MORNING!! WAKE UP !!"
     }
-    if(newHour >=12 && newHour <4 && AMPM ==='PM'){
+    if (newHour >= 12 && newHour < 4 && AMPM === 'PM') {
         DynamicMessage.innerText = "GOOD AFTERNOON !! TAKE SOME SLEEP"
     }
-    if(newHour >=4 && newHour <8 && AMPM ==='PM'){
+    if (newHour >= 4 && newHour < 8 && AMPM === 'PM') {
         DynamicMessage.innerText = "GOOD EVENING !!"
     }
-    if(newHour >=8 && newHour <12 && AMPM ==='PM'){
+    if (newHour >= 8 && newHour < 12 && AMPM === 'PM') {
         DynamicMessage.innerText = "GOOD NIGHT !!"
     }
 
-    if(newMin <=9){
+    if (newMin <= 9) {
         newMin = '0' + newMin;
     }
 
-    if(newSec <=9){
+    if (newSec <= 9) {
         newSec = '0' + newSec;
     }
 
@@ -60,23 +59,52 @@ setInterval(setTime, 1000);
 
 
 
-SetAlarm_Btn.addEventListener('mouseover', ()=>{
+SetAlarm_Btn.addEventListener('mouseover', () => {
     SetAlarm_Btn.innerHTML = "Party time!";
 })
 
-SetAlarm_Btn.addEventListener('mouseout', ()=>{
+SetAlarm_Btn.addEventListener('mouseout', () => {
     SetAlarm_Btn.innerHTML = "Set Alarm";
 })
-SetAlarm_Btn.addEventListener('click', ()=>{
+SetAlarm_Btn.addEventListener('click', () => {
+    let date = new Date();
+    let hours = date.getHours();
+
+    // These lines of code give the selected index of the select option.
     let wakeSelectedIndex = SetWakeTime.selectedIndex;
     let napSelectedIndex = SetNapTime.selectedIndex;
     let lunchSelectedIndex = SetLunchTime.selectedIndex;
     let nightSelectedIndex = SetNightTime.selectedIndex;
-    
 
-    
+
+
     WakeUPLabel.innerText = SetWakeTime.children[wakeSelectedIndex].innerText;
     LunchTimeLabel.innerText = SetNapTime.children[napSelectedIndex].innerText;
     NapTimeLabel.innerText = SetLunchTime.children[lunchSelectedIndex].innerText;
     NightTimeLabel.innerText = SetNightTime.children[nightSelectedIndex].innerText;
+
+    if (Number(SetWakeTime.value) === hours) {
+        DynamicMessage2.innerText = "GRAB SOME HEALTHY BREAKFAST!!!";
+        Reminder_Poster.src = "./Images/WakeUpPoster.svg";
+    }
+    else if(Number(SetLunchTime.value) === hours){
+        DynamicMessage2.innerText = "LET'S HAVE SOME LUNCH !!";
+        Reminder_Poster.src = "./Images/LunchPoster.svg";
+    }
+    else if(Number(SetNapTime.value) === hours){
+        DynamicMessage2.innerText = "STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!";
+        Reminder_Poster.src = "./Images/lunch_image.png";
+    }
+    else if(Number(SetNightTime.value) === hours){
+        DynamicMessage2.innerText = "CLOSE YOUR EYES AND GO TO SLEEP";
+        Reminder_Poster.src = "./Images/NightPoster.svg";
+    }else{
+        DynamicMessage2.innerText = "Set Time";
+        Reminder_Poster.src = "./Images/DefaultPoster.png";
+    }
+
+    //     SetWakeTime
+    // SetNapTime
+    // SetLunchTime
+    // SetNightTime
 })
