@@ -102,9 +102,4 @@ SetAlarm_Btn.addEventListener('click', () => {
         DynamicMessage2.innerText = "Set Time";
         Reminder_Poster.src = "./Images/DefaultPoster.png";
     }
-
-    //     SetWakeTime
-    // SetNapTime
-    // SetLunchTime
-    // SetNightTime
 })
