@@ -48,7 +48,9 @@ function setTime() {
     if (newSec <= 9) {
         newSec = '0' + newSec;
     }
-
+    if(newHour == 0){
+        newHour = 12;
+    }
     Time_Hour.innerText = newHour;
     Time_Minute.innerText = newMin;
     Time_Second.innerText = newSec;
@@ -83,11 +85,7 @@ SetAlarm_Btn.addEventListener('click', () => {
     NapTimeLabel.innerText = SetLunchTime.children[lunchSelectedIndex].innerText;
     NightTimeLabel.innerText = SetNightTime.children[nightSelectedIndex].innerText;
 
-    if (Number(SetWakeTime.value) === hours) {
-        DynamicMessage2.innerText = "GRAB SOME HEALTHY BREAKFAST!!!";
-        Reminder_Poster.src = "./Images/WakeUpPoster.svg";
-    }
-    else if(Number(SetLunchTime.value) === hours){
+ if(Number(SetLunchTime.value) === hours){
         DynamicMessage2.innerText = "LET'S HAVE SOME LUNCH !!";
         Reminder_Poster.src = "./Images/LunchPoster.svg";
     }
@@ -99,7 +97,7 @@ SetAlarm_Btn.addEventListener('click', () => {
         DynamicMessage2.innerText = "CLOSE YOUR EYES AND GO TO SLEEP";
         Reminder_Poster.src = "./Images/NightPoster.svg";
     }else{
-        DynamicMessage2.innerText = "Set Time";
-        Reminder_Poster.src = "./Images/DefaultPoster.png";
+        DynamicMessage2.innerText = "GRAB SOME HEALTHY BREAKFAST!!!";
+        Reminder_Poster.src = "./Images/WakeUpPoster.svg";
     }
 })
