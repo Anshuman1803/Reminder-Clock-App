@@ -2,14 +2,18 @@ const Time_Hour = document.getElementById("Time_Hour");
 const Time_Minute = document.getElementById("Time_Minute");
 const Time_Second = document.getElementById("Time_Second");
 const Time_AMPM = document.getElementById("Time_AMPM");
+
 const DynamicMessage = document.getElementById("DynamicMessage");
 const Reminder_Poster = document.getElementById("Reminder_Poster");
 const DynamicMessage2 = document.getElementById("DynamicMessage2");
+
 const SetAlarm_Btn = document.getElementById("SetAlarm_Btn");
+
 const SetWakeTime = document.getElementById("SetWakeTime");
 const SetNapTime = document.getElementById("SetNapTime");
 const SetLunchTime = document.getElementById("SetLunchTime");
 const SetNightTime = document.getElementById("SetNightTime");
+
 const WakeUPLabel = document.getElementById("WakeUPLabel");
 const LunchTimeLabel = document.getElementById("LunchTimeLabel");
 const NapTimeLabel = document.getElementById("NapTimeLabel");
@@ -79,7 +83,7 @@ SetAlarm_Btn.addEventListener('click', () => {
     let nightSelectedIndex = SetNightTime.selectedIndex;
 
 
-
+// THese line of code set the innerText of each label as the user select the option.
     WakeUPLabel.innerText = SetWakeTime.children[wakeSelectedIndex].innerText;
     LunchTimeLabel.innerText = SetNapTime.children[napSelectedIndex].innerText;
     NapTimeLabel.innerText = SetLunchTime.children[lunchSelectedIndex].innerText;
