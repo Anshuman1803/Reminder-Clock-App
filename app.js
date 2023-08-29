@@ -28,12 +28,12 @@ function setTime() {
     let newSec = newDate.getSeconds();
     let AMPM = "AM";
 
-    if (newHour > 12) {
-        newHour -= 12;
+    if (newHour >= 12) {
         AMPM = "PM";
     }
-    if (newHour >= 0 && newHour <= 11 && AMPM === 'AM') {
-        DynamicMessage.innerText = "GOOD MORNING!! WAKE UP !!"
+
+    if (newHour > 12) {
+        newHour -= 12;
     }
     if (newHour >= 12 && newHour < 4 && AMPM === 'PM') {
         DynamicMessage.innerText = "GOOD AFTERNOON !! TAKE SOME SLEEP"
@@ -52,7 +52,7 @@ function setTime() {
     if (newSec <= 9) {
         newSec = '0' + newSec;
     }
-    if(newHour == 0){
+    if (newHour == 0) {
         newHour = 12;
     }
     Time_Hour.innerText = newHour;
@@ -83,24 +83,24 @@ SetAlarm_Btn.addEventListener('click', () => {
     let nightSelectedIndex = SetNightTime.selectedIndex;
 
 
-// THese line of code set the innerText of each label as the user select the option.
+    // THese line of code set the innerText of each label as the user select the option.
     WakeUPLabel.innerText = SetWakeTime.children[wakeSelectedIndex].innerText;
     LunchTimeLabel.innerText = SetNapTime.children[napSelectedIndex].innerText;
     NapTimeLabel.innerText = SetLunchTime.children[lunchSelectedIndex].innerText;
     NightTimeLabel.innerText = SetNightTime.children[nightSelectedIndex].innerText;
 
- if(Number(SetLunchTime.value) === hours){
+    if (Number(SetLunchTime.value) === hours) {
         DynamicMessage2.innerText = "LET'S HAVE SOME LUNCH !!";
         Reminder_Poster.src = "./Images/LunchPoster.svg";
     }
-    else if(Number(SetNapTime.value) === hours){
+    else if (Number(SetNapTime.value) === hours) {
         DynamicMessage2.innerText = "STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!";
         Reminder_Poster.src = "./Images/lunch_image.png";
     }
-    else if(Number(SetNightTime.value) === hours){
+    else if (Number(SetNightTime.value) === hours) {
         DynamicMessage2.innerText = "CLOSE YOUR EYES AND GO TO SLEEP";
         Reminder_Poster.src = "./Images/NightPoster.svg";
-    }else{
+    } else {
         DynamicMessage2.innerText = "GRAB SOME HEALTHY BREAKFAST!!!";
         Reminder_Poster.src = "./Images/WakeUpPoster.svg";
     }
