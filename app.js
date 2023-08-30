@@ -28,20 +28,21 @@ function setTime() {
     let newSec = newDate.getSeconds();
     let AMPM = "AM";
 
-    
+
     if (newHour >= 12 && newHour < 16) {
         DynamicMessage.innerText = "GOOD AFTERNOON !! TAKE SOME SLEEP"
     }
-    if (newHour >= 16 && newHour < 20 && AMPM === 'PM') {
+    if (newHour >= 16 && newHour < 20) {
         DynamicMessage.innerText = "GOOD EVENING !!"
     }
-    if (newHour >= 20 && newHour < 23 && AMPM === 'PM') {
+    if (newHour >= 20 && newHour < 23) {
         DynamicMessage.innerText = "GOOD NIGHT !!"
     }
-    
+
     if (newHour >= 12) {
         AMPM = "PM";
     }
+
 
     if (newHour > 12) {
         newHour -= 12;
